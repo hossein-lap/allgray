@@ -23,4 +23,9 @@ cp themes/allgray/static/style.css static/
 
 ## screenshot
 
-![cbtm](shots/shot-230327_045858.png)
+![main-page](shots/shot-230329_162647.png)
+
+
+![footer](shots/shot-230329_162714.png)
+
+![main-post-list](shots/shot-230329_162748.png)
