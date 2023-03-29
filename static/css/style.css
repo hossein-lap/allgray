@@ -367,6 +367,22 @@ code {
 }
 
 .right {
+	width: 30% ;
+	float: right ;
+}
+
+.tmid {
+	width: 30% ;
+	float: center ;
+}
+
+.tleft {
+	width: 30% ;
+	float: left ;
+	clear: both ;
+}
+
+.tright {
 	width: 45% ;
 	float: right ;
 }
