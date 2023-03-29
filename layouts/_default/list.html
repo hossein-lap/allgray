@@ -1,24 +1,63 @@
 {{ define "title" -}}
-{{ .Title | title }}
+	{{ .Title | title }}
 {{- end }}
+
 {{ define "main" -}}
-{{ .Content }}
-<ul>
-{{- range.Pages }}
-<li>
-	{{- if .Param "datesinlist" }}
-		<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-			{{ .Date.Format "2006 Jan 02" }}
-		</time> &ndash;
-	{{ end -}}
-	<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-	{{- if .Param "authorsinlist" }}
-	{{ with .Params.authors }}
-		by 
-		{{ delimit . ", " " and " }}
-	{{end}}
-	{{ end -}}
-</li>
-{{- end }}
-</ul>
+	{{ .Content }}
+	{{ if .IsHome }}
+		{{- range .Data.Pages -}}
+		<ul>
+			<li>
+	<span>
+				<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+	</span>
+
+				{{- range .Pages }}
+				<ul>
+					<li>
+						{{- if .Param "datesinlist" }}
+							<code>
+								<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+									{{ .Date.Format "2006 Jan 02" }}
+								</time> &ndash;
+							</code>
+						{{ end -}}
+
+						<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+						{{- if .Param "authorsinlist" }}
+						{{ with .Params.authors }}
+							&ndash; <i>
+								{{ delimit . "</i>, <i>" "</i> and <i>" }}
+							</i>
+						{{end}}
+						{{ end -}}
+					</li>
+				</ul>
+				{{- end }}
+			</li>
+		</ul>
+		{{- end -}}
+
+	{{ else }}
+		<ul>
+		{{- range.Pages }}
+		<li>
+			{{- if .Param "datesinlist" }}
+				<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+					{{ .Date.Format "2006 Jan 02" }}
+				</time> &ndash;
+			{{ end -}}
+			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+			{{- if .Param "authorsinlist" }}
+			{{ with .Params.authors }}
+				&ndash; <i>
+					{{ delimit . "</i>, <i>" "</i> and <i>" }}
+				</i>
+			{{end}}
+			{{ end -}}
+		</li>
+		{{- end }}
+		</ul>
+	{{ end }}
 {{- end }}

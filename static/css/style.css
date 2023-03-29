@@ -175,14 +175,37 @@ blockquote, q, abbr, address, cite, bdo {
 p, ul, li, table {
 	/* text-indent: 3%; */
 	/* padding-left: 50px; */
-	font-size: 120%;
 	white-space: wrap;
 	font-family: 'libserif';
 	background: #2E3436;
 	color: #bfbfbf;
 }
 
+li {
+	font-size: 20px;
+}
+
+li span {
+	font-size: 25px;
+}
+
+ul li:before {
+	content: '\0000a0';
+	list-style-type: square;
+}
+
+ol li {
+	padding: 5px;
+	margin-left: 35px;
+}
+
+ul li {
+	padding: 5px;
+	margin-left: 20px;
+}
+
 main {
+	font-size: 20px;
 	max-width: 800px;
 	margin: auto;
 	color: #bfbfbf;
@@ -214,7 +237,7 @@ footer {
 }
 
 /* For NEXTPREV.HTML */
-#nextprev {
+#nextprev:hover {
 	/* The container for both the previous and next articles. */
 }
 #prevart {
@@ -243,8 +266,36 @@ footer {
 	padding: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
+	margin-bottom: 2mm;
 	/* padding-left: 50px; */
 	/* height: 200px; Should be removed. Only for demonstration */
+}
+
+.theauthors {
+	border: 5px solid #151617;
+	border-radius: 5px;
+	background-color: #151617;
+	display: inline-block;
+	text-align: center;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5mm;
+}
+
+.thedate {
+	border: 5px solid #151617;
+	border-radius: 5px;
+	background-color: #151617;
+	display: inline-block;
+	text-align: center;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 2mm;
+}
+
+.ndhead {
 }
 
 .theheadings {
@@ -294,7 +345,8 @@ footer {
 }
 
 code {
-	padding: 0px;
+	font-size: 20px;
+	white-space: wrap;
 }
 
 .highlight {
@@ -306,4 +358,19 @@ code {
 	padding: 1%;
 	border: 2px solid black;
 	border-radius: 15px;
+}
+
+.left {
+	width: 45% ;
+	float: left ;
+	clear: both ;
+}
+
+.right {
+	width: 45% ;
+	float: right ;
+}
+
+br {
+	clear: both;
 }

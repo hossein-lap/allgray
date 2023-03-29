@@ -22,13 +22,34 @@
 			<div class="thetitle">
 				{{ block "title" . }}{{ end }}
 			</div>
+				{{ if .Params.subtitle }}
+				<br>
+				<div class="thesubtitle">
+					{{ .Params.subtitle }}
+				</div>
+				{{ end }}
+		<!-- author and date
+			<br>
+			{{ with .Params.authors }}
+			<div class="theauthors">
+					{{ delimit . ", " " and " }}
+			</div>
+			<br>
+			{{end}}
+			<div class="thedate">
+				{{ .Date.Format "2006 Jan 02" }}
+			</div>
+		-->
 		</header>
 		<article>
-		{{ block "main" . }}
-		{{ .Content }}
-		{{ end }}
-		{{ if .Param "nextprev" }}{{ partial "nextprev.html" . -}}{{ end -}}
-		{{ if .Param "taglist" }}{{ partial "taglist.html" . }}{{ end -}}
+
+	{{ if .IsHome }}
+	{{ else }}
+	{{ end }}
+
+		{{ block "main" . }} {{ .Content }} {{ end }}
+		{{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
+		{{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
 		</article>
 	</main>
 
