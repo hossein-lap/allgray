@@ -24,12 +24,12 @@ cp themes/allgray/config.toml .
 
 ## screenshot
 
-![page-title](shot-230331_032225.png)
+![page-title](shots/shot-230331_032225.png)
 
-![page-body](shot-230331_033237.png)
+![page-body](shots/shot-230331_033237.png)
 
-![code-block](shot-230331_033618.png)
+![code-block](shots/shot-230331_033618.png)
 
-![code-block-output](shot-230331_033924.png)
+![code-block-output](shots/shot-230331_033924.png)
 
-![site-map](shot-230331_034001.png)
+![site-map](shots/shot-230331_034001.png)
