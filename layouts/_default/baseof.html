@@ -19,33 +19,55 @@
 	{{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
 	<main>
 		<header>
+		{{ if .IsHome }}
 			<div class="thetitle">
 				{{ block "title" . }}{{ end }}
 			</div>
-				{{ if .Params.subtitle }}
+			{{ if .Params.subtitle }}
 				<br>
 				<div class="thesubtitle">
 					{{ .Params.subtitle }}
 				</div>
-				{{ end }}
-		<!-- author and date
+			{{ end }}
+		{{ else }}
+			<div class="thetitle">
+				{{ block "title" . }}{{ end }}
+			</div>
+			{{ if .Params.subtitle }}
+				<br>
+				<div class="thesubtitle">
+					{{ .Params.subtitle }}
+				</div>
+			{{ end }}
+
+			{{ if .Content }}
+				{{ if .Date }}
+				<br>
+				<div class="thedate">
+					{{ .Date.Format "January 2, 2006 - 15:04" }}
+				</div>
+				{{end}}
+			{{end}}
+
 			<br>
 			{{ with .Params.authors }}
 			<div class="theauthors">
 					{{ delimit . ", " " and " }}
 			</div>
 			<br>
-			{{end}}
-			<div class="thedate">
-				{{ .Date.Format "2006 Jan 02" }}
+			{{ end }}
+
+			{{ if .Params.summary }}
+			<br>
+			<div class="summary">
+				<p>
+					{{ .Params.summary }}
+				</p>
 			</div>
-		-->
+			{{ end }}
+		{{ end }}
 		</header>
 		<article>
-
-	{{ if .IsHome }}
-	{{ else }}
-	{{ end }}
 
 		{{ block "main" . }} {{ .Content }} {{ end }}
 		{{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}

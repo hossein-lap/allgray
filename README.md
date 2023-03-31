@@ -10,7 +10,8 @@ hugo new site new-site
 cd new-site
 git clone https://github.com/hossein-lap/allgray themes/cbail
 echo "theme = 'allgray'" >> config.toml
-cp themes/allgray/static/style.css static/
+cp -r themes/allgray/static/css static/
+cp themes/allgray/config.toml .
 ```
 
 ## stuff
@@ -23,9 +24,12 @@ cp themes/allgray/static/style.css static/
 
 ## screenshot
 
-![main-page](shots/shot-230329_162647.png)
+![page-title](shot-230331_032225.png)
 
+![page-body](shot-230331_033237.png)
 
-![footer](shots/shot-230329_162714.png)
+![code-block](shot-230331_033618.png)
 
-![main-post-list](shots/shot-230329_162748.png)
+![code-block-output](shot-230331_033924.png)
+
+![site-map](shot-230331_034001.png)

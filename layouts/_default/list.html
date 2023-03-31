@@ -5,12 +5,14 @@
 {{ define "main" -}}
 	{{ .Content }}
 	{{ if .IsHome }}
+	<h1> Map </h1>
+	<div class="sitemap">
 		{{- range .Data.Pages -}}
 		<ul>
 			<li>
-	<span>
-				<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-	</span>
+				<span>
+					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+				</span>
 
 				{{- range .Pages }}
 				<ul>
@@ -19,42 +21,70 @@
 							<code>
 								<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
 									{{ .Date.Format "2006 Jan 02" }}
-								</time> &ndash;
+								</time> &mdash;
 							</code>
 						{{ end -}}
 
 						<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 
 						{{- if .Param "authorsinlist" }}
-						{{ with .Params.authors }}
-							&ndash; <i>
-								{{ delimit . "</i>, <i>" "</i> and <i>" }}
-							</i>
-						{{end}}
+							{{ with .Params.authors }}
+								&nbsp;
+									« {{ delimit . ", " " and " }} »
+							{{end}}
 						{{ end -}}
+
+						{{ if .Params.summary }}
+							<ul>
+								<details>
+									<summary>
+										<div class="sans">Summary</div>
+									</summary>
+									<div class="collapse">
+										{{ .Params.summary }}
+									</div>
+								</details>
+							</ul>
+						{{ end }}
 					</li>
 				</ul>
 				{{- end }}
 			</li>
 		</ul>
 		{{- end -}}
+	</div>
 
 	{{ else }}
 		<ul>
 		{{- range.Pages }}
 		<li>
 			{{- if .Param "datesinlist" }}
+			<code>
 				<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
 					{{ .Date.Format "2006 Jan 02" }}
-				</time> &ndash;
+				</time> &mdash;
+			</code>
 			{{ end -}}
 			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 			{{- if .Param "authorsinlist" }}
 			{{ with .Params.authors }}
-				&ndash; <i>
-					{{ delimit . "</i>, <i>" "</i> and <i>" }}
-				</i>
+				&nbsp;
+					« {{ delimit . ", " " and " }} »
 			{{end}}
+
+			{{ if .Params.summary }}
+				<ul>
+					<details>
+						<summary>
+							<div class="sans">Summary</div>
+						</summary>
+						<div class="collapse">
+							{{ .Params.summary }}
+						</div>
+					</details>
+				</ul>
+			{{ end }}
+
 			{{ end -}}
 		</li>
 		{{- end }}

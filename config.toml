@@ -7,11 +7,46 @@ languageCode = 'en-us'
 	relatedtext = "Related"
 	favicon = "/favicon.ico"
 
-	#list items
+	# list items
 	datesinlist = true
 	authorsinlist = true
 
-	#footer items
+	# footer items
 	nextprev = true
 	taglist = true
 	showrss = true
+
+	custom_css = ["/css/syntax.css", "/css/style.css"]
+
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+		# enable using html in md files
+			unsafe = true
+
+	[markup.highlight]
+		noClasses = true
+		lineNos = true
+		lineNumbersInTable = false
+		anchorLineNos = false
+		lineAnchors = ''
+		style = "gruvbox"
+		codeFences = true
+		guessSyntax = false
+		hl_Lines = ''
+		hl_inline = false
+		lineNoStart = 1
+		noHl = false
+		tabWidth = 8
+
+# Top Menu
+[menu]
+	[[menu.main]]
+		Name = "Hossein"
+		URL = "/"
+		weight = 1
+
+	[[menu.main]]
+		Name = "Write"
+		URL = "/write"
+		weight = 2
