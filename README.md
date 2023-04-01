@@ -8,7 +8,7 @@ using for my personal website.
 ```sh
 hugo new site new-site
 cd new-site
-git clone https://github.com/hossein-lap/allgray themes/cbail
+git clone https://github.com/hossein-lap/allgray themes/allgray
 echo "theme = 'allgray'" >> config.toml
 cp -r themes/allgray/static/css static/
 cp themes/allgray/config.toml .
@@ -25,6 +25,8 @@ cp themes/allgray/config.toml .
 ## screenshot
 
 ![page-title](shots/shot-230331_032225.png)
+
+![toc](shots/shot-230402_010908.png)
 
 ![page-body](shots/shot-230331_033237.png)
 

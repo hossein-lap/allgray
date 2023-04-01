@@ -24,7 +24,6 @@
 				{{ block "title" . }}{{ end }}
 			</div>
 			{{ if .Params.subtitle }}
-				<br>
 				<div class="thesubtitle">
 					{{ .Params.subtitle }}
 				</div>
@@ -55,6 +54,21 @@
 					{{ delimit . ", " " and " }}
 			</div>
 			<br>
+			{{ end }}
+
+			{{ if .Params.toc }}
+			<div class="tableofcontents">
+					<ol>
+						<details>
+							<summary>
+									<h4> Table Of Contents </h4>
+							</summary>
+							<div class="sitemap">
+								{{ .TableOfContents }}
+							</div>
+						</details>
+					</ol>
+			</div>
 			{{ end }}
 
 			{{ if .Params.summary }}

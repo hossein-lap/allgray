@@ -5,7 +5,6 @@ header {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	/* margin-left: -1cm; */
 	margin-bottom: 1%;
 	font-weight: normal;
 	background-color: #151617;
@@ -14,32 +13,30 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 0.5%;
 	padding-left: 1%;
 	padding-right: 1%;
-	/* padding: 5px; */
 	display: inline-block;
 	text-align: left;
 }
 
 h1 {
-	font-size: 250%;
+	font-size: 200%;
 }
 h2 {
-	font-size: 230%;
+	font-size: 150%;
 }
 h3 {
-	font-size: 210%;
+	font-size: 125%;
 }
 h4 {
-	font-size: 160%;
+	font-size: 110%;
 }
 h5 {
-	font-size: 140%;
+	font-size: 100%;
 }
 h6 {
-	font-size: 120%;
+	font-size: 100%;
 }
 
 body {
-	/* font-size: larger; */
 	padding: 10px;
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	background: #2E3436;
@@ -47,16 +44,20 @@ body {
 }
 
 blockquote, q, abbr, address, cite, bdo {
-	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: 1ans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 }
 
 p, ul, li, table {
-	/* text-indent: 3%; */
-	/* padding-left: 50px; */
 	white-space: wrap;
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	background: #2E3436;
 	color: #cfcfcf;
+}
+
+code {
+	font-family: monospace;
+	font-size: 20px;
+	white-space: wrap;
 }
 
 li {
@@ -135,7 +136,8 @@ footer {
 
 /* div(s) */
 .thetitle {
-	font-size: 300%;
+	font-family: serif, Times, Georgia, Garamond;
+	font-size: 250%;
 	border: 5px solid #151617;
 	border-radius: 15px;
 	background-color: #151617;
@@ -144,12 +146,16 @@ footer {
 	padding: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
+	margin-bottom: 6mm;
+}
+
+.thesubtitle {
+	font-family: serif, Times, Georgia, Garamond;
 	margin-bottom: 2mm;
-	/* padding-left: 50px; */
-	/* height: 200px; Should be removed. Only for demonstration */
 }
 
 .theauthors {
+	font-family: serif, Times, Georgia, Garamond;
 	border: 5px solid #151617;
 	border-radius: 5px;
 	background-color: #151617;
@@ -162,6 +168,7 @@ footer {
 }
 
 .thedate {
+	font-family: serif, Times, Georgia, Garamond;
 	border: 5px solid #151617;
 	border-radius: 5px;
 	background-color: #151617;
@@ -170,10 +177,15 @@ footer {
 	padding: 0px;
 	padding-left: 5px;
 	padding-right: 5px;
-	margin-top: 2mm;
 }
 
-.subtitle {
+.summary {
+	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-size: 100%;
+	white-space: wrap;
+	text-align: left;
+	font-style: normal;
+	font-weight: normal;
 }
 
 .theheadings {
@@ -184,6 +196,33 @@ footer {
 	text-align: left;
 	padding: 10px;
 }
+
+.collapse {
+	font-weight: normal;
+	text-align: left;
+	padding: 2%;
+	text-indent: 0%;
+	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	border: 0px solid black;
+	border-radius: 0px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+} 
+
+.tableofcontents {
+	font-weight: normal;
+	text-align: left;
+	text-indent: 0%;
+	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
+} 
+
+.sitemap {
+	font-weight: normal;
+	text-align: left;
+	padding: 0.1%;
+	border: 3px solid #151617;
+	border-radius: 5px;
+} 
 
 .topbar {
 	font-weight: normal;
@@ -197,11 +236,6 @@ footer {
 	font-size: 150%;
 	border: 2px solid #151617;
 	border-radius: 5px;
-	/* margin-left: 1cm; */
-	/* background-color: #151617; */
-	/* position: absolute; */
-	/* clear: both; */
-	/* display: table; */
 }
 
 .botbar {
@@ -215,25 +249,12 @@ footer {
 	max-width: 100%;
 	border: 5px solid #151617;
 	border-radius: 5px;
-	/* margin-left: 1cm; */
-	/* background-color: #151617; */
-	/* position: absolute; */
-	/* font-size: 32px; */
-	/* clear: both; */
-	/* display: table; */
-}
-
-code {
-	font-family: monospace;
-	font-size: 20px;
-	white-space: wrap;
 }
 
 .highlight {
 	margin-top: 2%;
 	margin-left: 5%;
 	margin-right: 5%;
-	/* border-style: ; */
 	color: #f8f8f2;
 	background: #282828;
 	padding: 1%;
@@ -246,43 +267,19 @@ code {
 	float: left ;
 	clear: both ;
 }
-
 .right {
 	width: 45% ;
 	float: right ;
 }
-
 br {
 	clear: both;
 }
 
+.serif {
+	font-family: serif, Times, Georgia, Garamond;
+	display: inline-block;
+}
 .sans {
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	display: inline-block;
 }
-
-.summary {
-	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
-	font-size: 100%;
-	white-space: wrap;
-	text-align: left;
-	font-style: normal;
-	font-weight: normal;
-}
-
-.collapse {
-	padding: 2%;
-	text-indent: 0%;
-	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
-	border: 0px solid black;
-	border-radius: 0px;
-	margin-top: 2%;
-	margin-bottom: -5%;
-} 
-
-.sitemap {
-	/* background: #26292A; */
-	padding: 0.1%;
-	border: 3px solid #151617;
-	border-radius: 5px;
-} 
