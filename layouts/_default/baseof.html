@@ -1,108 +1,108 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
 <head>
-	<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
-	<link rel="canonical" href="{{ .Site.BaseURL }}">
-	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
-	<link rel='stylesheet' type='text/css' href='/css/style.css'>
-	<link rel='stylesheet' type='text/css' href='/css/syntax.css'>
-	{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
-	{{ end -}}
-	<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
-	{{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
-	{{ end -}}
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="robots" content="index, follow">
-	<meta charset="utf-8">
+   <title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
+   <link rel="canonical" href="{{ .Site.BaseURL }}">
+   <link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
+   <link rel='stylesheet' type='text/css' href='/css/style.css'>
+   <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+   {{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
+   {{ end -}}
+   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+   {{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+   {{ end -}}
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="robots" content="index, follow">
+   <meta charset="utf-8">
 </head>
 <body>
-	{{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
-	<main>
-		<header>
-		{{ if .IsHome }}
-			<div class="thetitle">
-				{{ block "title" . }}{{ end }}
-			</div>
-			{{ if .Params.subtitle }}
-				<div class="thesubtitle">
-					{{ .Params.subtitle }}
-				</div>
-			{{ end }}
-		{{ else }}
-			<div class="thetitle">
-				{{ block "title" . }}{{ end }}
-			</div>
-			{{ if .Params.subtitle }}
-				<br>
-				<div class="thesubtitle">
-					{{ .Params.subtitle }}
-				</div>
-			{{ end }}
+   {{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
+   <main>
+      <header>
+      {{ if .IsHome }}
+         <div class="thetitle">
+            {{ block "title" . }}{{ end }}
+         </div>
+         {{ if .Params.subtitle }}
+            <div class="thesubtitle">
+               {{ .Params.subtitle }}
+            </div>
+         {{ end }}
+      {{ else }}
+         <div class="thetitle">
+            {{ block "title" . }}{{ end }}
+         </div>
+         {{ if .Params.subtitle }}
+            <br>
+            <div class="thesubtitle">
+               {{ .Params.subtitle }}
+            </div>
+         {{ end }}
 
-			{{ if .Content }}
-				{{ if .Date }}
-				<br>
-				<div class="thedate">
-					{{ .Date.Format "January 2, 2006 - 15:04" }}
-				</div>
-				{{end}}
-			{{end}}
+         {{ if .Content }}
+            {{ if .Date }}
+            <br>
+            <div class="thedate">
+               {{ .Date.Format "January 2, 2006 - 15:04" }}
+            </div>
+            {{end}}
+         {{end}}
 
-			<br>
-			{{ with .Params.authors }}
-			<div class="theauthors">
-					{{ delimit . ", " " and " }}
-			</div>
-			<br>
-			{{ end }}
+         <br>
+         {{ with .Params.authors }}
+         <div class="theauthors">
+               {{ delimit . ", " " and " }}
+         </div>
+         <br>
+         {{ end }}
 
-			{{ if .Params.toc }}
-			<div class="tableofcontents">
-					<ol>
-						<details>
-							<summary>
-									<h4> Table Of Contents </h4>
-							</summary>
-							<div class="sitemap">
-								{{ .TableOfContents }}
-							</div>
-						</details>
-					</ol>
-			</div>
-			{{ end }}
+         {{ if .Params.toc }}
+         <div class="tableofcontents">
+               <ol>
+                  <details>
+                     <summary>
+                           <h4> Table Of Contents </h4>
+                     </summary>
+                     <div class="sitemap">
+                        {{ .TableOfContents }}
+                     </div>
+                  </details>
+               </ol>
+         </div>
+         {{ end }}
 
-			{{ if .Params.summary }}
-			<br>
-			<div class="summary">
-				<p>
-					{{ .Params.summary }}
-				</p>
-			</div>
-			{{ end }}
-		{{ end }}
-		</header>
-		<article>
+         {{ if .Params.summary }}
+         <br>
+         <div class="summary">
+            <p>
+               {{ .Params.summary }}
+            </p>
+         </div>
+         {{ end }}
+      {{ end }}
+      </header>
+      <article>
 
-		{{ block "main" . }} {{ .Content }} {{ end }}
-		{{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
-		{{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
-		</article>
-	</main>
+      {{ block "main" . }} {{ .Content }} {{ end }}
+      {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
+      {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
+      </article>
+   </main>
 
-	<hr>
-	{{ block "footer" . }}
-	<footer>
-		<div class='botbar'>
-		<a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-		{{- if .Param "showrss" }}
-		<br><br>
-			<a href="/index.xml">
-				<img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates.">
-			</a>
-		{{ end }}
+   <hr>
+   {{ block "footer" . }}
+   <footer>
+      <div class='botbar'>
+      <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+      {{- if .Param "showrss" }}
+      <br> <br>
+         <a href="/index.xml">
+            <img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates.">
+         </a>
+      {{ end }}
 
-		</div>
-	</footer>
-	{{ end }}
+      </div>
+   </footer>
+   {{ end }}
 </body>
 </html>
