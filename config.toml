@@ -39,14 +39,19 @@ languageCode = 'en-us'
 		noHl = false
 		tabWidth = 8
 
-# Top Menu
-[menu]
-	[[menu.main]]
-		Name = "Hossein"
-		URL = "/"
-		weight = 1
-
-	[[menu.main]]
-		Name = "Write"
-		URL = "/write"
-		weight = 2
+## Top Menu Example
+#[menu]
+#	[[menu.main]]
+#		Name = "Hossein"
+#		URL = "/"
+#		weight = 1
+#
+#	[[menu.main]]
+#		Name = "RSS"
+#		URL = "/index.xml"
+#		weight = 2
+#
+#	[[menu.main]]
+#		Name = "Tags"
+#		URL = "/tags"
+#		weight = 3

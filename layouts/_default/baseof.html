@@ -16,10 +16,13 @@
    <meta charset="utf-8">
 </head>
 <body>
-   {{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
    <main>
+   <div class="topbar">
+      {{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
+   </div>
       <header>
       {{ if .IsHome }}
+   <div class="header">
          <div class="thetitle">
             {{ block "title" . }}{{ end }}
          </div>
@@ -28,7 +31,9 @@
                {{ .Params.subtitle }}
             </div>
          {{ end }}
+   </div>
       {{ else }}
+   <div class="header">
          <div class="thetitle">
             {{ block "title" . }}{{ end }}
          </div>
@@ -55,6 +60,7 @@
          </div>
          <br>
          {{ end }}
+   </div>
 
          {{ if .Params.toc }}
          <div class="tableofcontents">
@@ -83,26 +89,31 @@
       </header>
       <article>
 
+   <div class="row">
       {{ block "main" . }} {{ .Content }} {{ end }}
+   </div>
       {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
       {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
       </article>
-   </main>
 
    <hr>
    {{ block "footer" . }}
    <footer>
+   <div class="footer">
       <div class='botbar'>
       <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
       {{- if .Param "showrss" }}
-      <br> <br>
+      <div class="rssfeed">
          <a href="/index.xml">
-            <img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates.">
+               Subscribe via RSS for updates.
          </a>
+      </div>
       {{ end }}
 
       </div>
+      </div>
    </footer>
    {{ end }}
+   </main>
 </body>
 </html>
