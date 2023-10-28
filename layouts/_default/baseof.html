@@ -1,119 +1,173 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
-<head>
-   <title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
-   <link rel="canonical" href="{{ .Site.BaseURL }}">
-   <link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
-   <link rel='stylesheet' type='text/css' href='/css/style.css'>
-   <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
-   {{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
-   {{ end -}}
-   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
-   {{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
-   {{ end -}}
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="robots" content="index, follow">
-   <meta charset="utf-8">
-</head>
-<body>
-   <main>
-   <div class="topbar">
-      {{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
-   </div>
+  <head>
+    <title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Site.BaseURL }}">
+    <link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/css/syntax.css'>
+    <link rel='stylesheet' type='text/css' href='/css/theme.css'>
+    {{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
+    {{ end -}}
+    <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+    {{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+    {{ end -}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <main>
+      <div class="topbar">
+        {{ if .Site.Menus.main }}
+        {{ partial "nav.html" . }}
+        {{ end -}}
+      </div>
+
+    <!-- Site map -->
+      <!--
+      <aside>
+        <ul>
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+          <div class='topbar'>
+            <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+              <a href="#">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+              </a>
+            </li>
+          </div>
+          <div class='topbar'>
+            <ul class="sub-menu">
+              {{ range .Children }}
+              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                <a href="{{ .URL }}">{{ .Name }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ else }}
+          <div class='topbar'>
+            <li>
+              <a href="{{ .URL }}">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+              </a>
+            </li>
+          </div>
+          {{ end }}
+          {{ end }}
+        </ul>
+      </aside>
+      -->
+
+  <div class="mainmain">
+      <!--
+        <div class="topbar">
+        {{ if .Site.Menus.main }}
+        {{ partial "nav.html" . }}
+        {{ end -}}
+        </div>
+      -->
+
       <header>
-      {{ if .IsHome }}
-   <div class="header">
-         <div class="thetitle">
+        {{ if .IsHome }}
+        <div class="header">
+          <div class="thetitle">
             {{ block "title" . }}{{ end }}
-         </div>
-         {{ if .Params.subtitle }}
-            <div class="thesubtitle">
-               {{ .Params.subtitle }}
-            </div>
-         {{ end }}
-   </div>
-      {{ else }}
-   <div class="header">
-         <div class="thetitle">
+          </div>
+          {{ if .Params.subtitle }}
+          <div class="thesubtitle">
+            {{ .Params.subtitle }}
+          </div>
+          {{ end }}
+        </div>
+        {{ else }}
+        <div class="header">
+          <div class="thetitle">
             {{ block "title" . }}{{ end }}
-         </div>
-         {{ if .Params.subtitle }}
-            <br>
-            <div class="thesubtitle">
-               {{ .Params.subtitle }}
-            </div>
-         {{ end }}
+          </div>
+          {{ if .Params.subtitle }}
+          <div class="thesubtitle">
+            {{ .Params.subtitle }}
+          </div>
+          {{ end }}
 
-         {{ if .Content }}
-            {{ if .Date }}
-            <br>
-            <div class="thedate">
-               {{ .Date.Format "January 2, 2006 - 15:04" }}
-            </div>
-            {{end}}
-         {{end}}
+          {{ if .Content }}
+          {{ if .Date }}
+          <div class="thedate">
+            {{ .Date.Format "January 2, 2006" }}
+          </div>
+          {{end}}
+          {{end}}
+          {{ with .Params.authors }}
+          <div class="theauthors">
+            {{ delimit . ", " " and " }}
+          </div>
+          {{ end }}
+        </div>
 
-         <br>
-         {{ with .Params.authors }}
-         <div class="theauthors">
-               {{ delimit . ", " " and " }}
-         </div>
-         <br>
-         {{ end }}
-   </div>
+        {{ if .Params.toc }}
+        <div class="tableofcontents">
+          <ol>
+            <details>
+              <summary>
+                <h4> Table Of Contents </h4>
+              </summary>
+              <div class="sitemap">
+                {{ .TableOfContents }}
+              </div>
+            </details>
+          </ol>
+        </div>
+        {{ end }}
 
-         {{ if .Params.toc }}
-         <div class="tableofcontents">
-               <ol>
-                  <details>
-                     <summary>
-                           <h4> Table Of Contents </h4>
-                     </summary>
-                     <div class="sitemap">
-                        {{ .TableOfContents }}
-                     </div>
-                  </details>
-               </ol>
-         </div>
-         {{ end }}
-
-         {{ if .Params.summary }}
-         <br>
-         <div class="summary">
-            <p>
-               {{ .Params.summary }}
-            </p>
-         </div>
-         {{ end }}
-      {{ end }}
+        {{ if .Params.summary }}
+        <div class="summary">
+        <div class="mainpad">
+          <p>
+          {{ .Params.summary }}
+          </p>
+        </div>
+        </div>
+        {{ end }}
+        {{ end }}
       </header>
-      <article>
 
-   <div class="row">
-      {{ block "main" . }} {{ .Content }} {{ end }}
-   </div>
-      {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
-      {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
+      <!-- main body -->
+
+      <article>
+        <div class="row">
+        <div class="mainpad">
+          {{ block "main" . }} {{ .Content }} {{ end }}
+        </div>
+        </div>
+        {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
+        {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
       </article>
 
-   <hr>
-   {{ block "footer" . }}
-   <footer>
-   <div class="footer">
-      <div class='botbar'>
-      <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-      {{- if .Param "showrss" }}
-      <div class="rssfeed">
-         <a href="/index.xml">
-               Subscribe via RSS for updates.
-         </a>
-      </div>
-      {{ end }}
+      <hr>
+      {{ block "footer" . }}
+      <footer>
+        <div class="footer">
+          <div class='botbar'>
+            <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+            {{- if .Param "showrss" }}
+            <div class="rssfeed">
+              <a href="/index.xml">
+                Subscribe via RSS for updates.
+              </a>
+            </div>
+            {{ end }}
 
-      </div>
-      </div>
-   </footer>
-   {{ end }}
-   </main>
-</body>
+          </div>
+        </div>
+      </footer>
+      {{ end }}
+    </div>
+    </main>
+  </body>
 </html>

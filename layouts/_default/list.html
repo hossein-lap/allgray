@@ -1,107 +1,55 @@
 {{ define "title" -}}
-   {{ .Title | title }}
+{{ .Title | title }}
 {{- end }}
-
 {{ define "main" -}}
-   {{ .Content }}
+{{ .Content }}
+{{ if .IsHome }}
+{{- if .Data.Pages -}}
+<div class="tableofcontents">
+  <!-- <h4>Posts</h4> -->
+  <div class="sitemap">
+	<hr>
+    <ul>
+      {{- range .Data.Pages -}}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- range .Pages }}
+      <li>
+        {{- if .Param "datesinlist" }}
+        <!-- <code> -->
+          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "2006 Jan 02" }}
+          </time> &ndash;
+        <!-- </code> -->
+        {{ end -}}
 
-   {{ if .IsHome }}
-
-      {{- if .Data.Pages -}}
-      <div class="tableofcontents">
-            <details>
-               <summary> <h1> Posts </h1> </summary>
-               <div class="sitemap">
-         <ol>
-         {{- range .Data.Pages -}}
-            <details>
-               <summary>
-               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-               </summary>
-               {{- range .Pages }}
-               <ul>
-                  <li>
-                     {{- if .Param "datesinlist" }}
-                        <code>
-                           <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                              {{ .Date.Format "2006 Jan 02" }}
-                           </time> &mdash;
-                        </code>
-                     {{ end -}}
-
-                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-
-                     {{- if .Param "authorsinlist" }}
-                        {{ with .Params.authors }}
-                           &nbsp;
-                              « {{ delimit . ", " " and " }} »
-                        {{end}}
-                     {{ end -}}
-
-                     {{ if .Params.summary }}
-                        <ul>
-                           <details>
-                              <summary>
-                                 <div class="serif">
-                                    <strong> Summary </strong>
-                                 </div>
-                              </summary>
-                              <div class="collapse">
-                                 {{ .Params.summary }}
-                              </div>
-                           </details>
-                        </ul>
-                     {{ end }}
-                  </li>
-               </ul>
-               {{- end }}
-            </details>
-         {{- end -}}
-         </ol>
-
-               </div>
-            </details>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            {{- end }}
+            {{- end -}}
+          </ul>
+					<hr>
+        </div>
       </div>
       {{- end -}}
-
-   {{ else }}
-
+      {{ else }}
+      <div class="tableofcontents">
+        <div class="sitemap">
+					<hr>
       <ul>
-         {{- range.Pages }}
-         <li>
-            {{- if .Param "datesinlist" }}
-               <code>
-                  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                     {{ .Date.Format "2006 Jan 02" }}
-                  </time> &mdash;
-               </code>
-            {{ end -}}
-
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-
-            {{- if .Param "authorsinlist" }}
-               {{ with .Params.authors }}
-                  &nbsp;
-                     « {{ delimit . ", " " and " }} »
-               {{end}}
-            {{ end -}}
-
-            {{ if .Params.summary }}
-               <ul>
-                  <details>
-                     <summary>
-                        <div class="serif">
-                           <strong> Summary </strong>
-                        </div>
-                     </summary>
-                     <div class="collapse">
-                        {{ .Params.summary }}
-                     </div>
-                  </details>
-               </ul>
-            {{ end }}
-         </li>
-         {{- end }}
+        {{- range.Pages }}
+        <li>
+          {{- if .Param "datesinlist" }}
+          <!-- <code> -->
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date.Format "2006 Jan 02" }}
+            </time> &ndash;
+          <!-- </code> -->
+          {{ end -}}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- end }}
       </ul>
-   {{ end }}
+					<hr>
+        </div>
+      </div>
+      {{ end }}
 {{- end }}
