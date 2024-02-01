@@ -8,47 +8,68 @@
 <div class="tableofcontents">
   <!-- <h4>Posts</h4> -->
   <div class="sitemap">
-	<hr>
-    <ul>
+  <!-- <hr> -->
+  <!-- start first-page -->
       {{- range .Data.Pages -}}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{- range .Pages }}
-      <li>
-        {{- if .Param "datesinlist" }}
-        <!-- <code> -->
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "2006 Jan 02" }}
-          </time> &ndash;
-        <!-- </code> -->
-        {{ end -}}
+      <!-- <h5> -->
+      <!-- </h5> -->
+  <table>
+  <!-- <table style="width:100%"> -->
+    <tr>
+      <th> <a href="{{ .RelPermalink }}">{{ .Title }}</a> </th>
+      <th style="width: 70%;"> </th>
+    </tr>
+  </table>
+  <table>
+        {{- range .Pages }}
+    <tr>
+      <th style="width: 15%;"> </th>
 
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </li>
-            {{- end }}
-            {{- end -}}
-          </ul>
-					<hr>
-        </div>
-      </div>
-      {{- end -}}
-      {{ else }}
-      <div class="tableofcontents">
-        <div class="sitemap">
-					<hr>
-      <ul>
-        {{- range.Pages }}
-        <li>
+        <td style="padding-left: 0%; padding-top: 2%; padding-bottom: 2%;">
           {{- if .Param "datesinlist" }}
-          <!-- <code> -->
+          <code>
             <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
               {{ .Date.Format "2006 Jan 02" }}
-            </time> &ndash;
-          <!-- </code> -->
+            </time>
+          </code>
           {{ end -}}
+        </td>
+        <td style="padding-left: 10%; padding-top: 0%; padding-bottom: 0%;">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{- end }}
-      </ul>
-					<hr>
+        </td>
+    </tr>
+        {{- end }}
+  </table>
+      {{- end -}}
+  <!-- end first-page -->
+          <!-- <hr> -->
+        </div>
+      </div>
+      {{- end -}} {{ else }}
+      <div class="tableofcontents">
+        <div class="sitemap">
+          <!-- <hr> -->
+
+      <table>
+        {{- range.Pages }}
+        <tr>
+          {{- if .Param "datesinlist" }}
+          <td style="padding-left: 0%; padding-top: 2%; padding-bottom: 2%; width: 30%;">
+          <code>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date.Format "2006 Jan 02" }}
+            </time>
+          </code>
+          </td>
+          {{ end -}}
+          <td style="padding-left: 10%; padding-top: 2%; padding-bottom: 2%; width: 80%">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </td>
+        </tr>
+        {{- end }}
+      </table>
+
+          <!-- <hr> -->
         </div>
       </div>
       {{ end }}

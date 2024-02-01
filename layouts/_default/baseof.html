@@ -150,23 +150,64 @@
       </article>
 
       <hr>
+    {{ if .IsHome }}
       {{ block "footer" . }}
       <footer>
         <div class="footer">
           <div class='botbar'>
-            <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-            {{- if .Param "showrss" }}
-            <div class="rssfeed">
-              <a href="/index.xml">
-                Subscribe via RSS for updates.
-              </a>
-            </div>
-            {{ end }}
+
+          <table style="width: 100%;">
+            <tr>
+              <td>
+                <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+              </td>
+              <td>
+                Github
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{- if .Param "showrss" }}
+                    <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                {{ end }}
+              </td>
+              <td>
+                Email maybe?!
+              </td>
+            </tr>
+          </table>
+        {{ end }} {{ else }}
+      <footer>
+        <div class="footer">
+          <div class='botbar'>
+
+          <table style="width: 100%;">
+            <tr>
+              <td>
+                <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+              </td>
+              <td>
+                github?
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{- if .Param "showrss" }}
+                    <a href="/index.xml"> Subscribe via RSS for updates. </a>
+                {{ end }}
+              </td>
+              <td>
+                mastodon?!
+              </td>
+            </tr>
+          </table>
 
           </div>
         </div>
       </footer>
       {{ end }}
+
+
     </div>
     </main>
   </body>
