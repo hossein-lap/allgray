@@ -64,6 +64,24 @@
       </aside>
       -->
 
+
+  <!-- {{ if .Params.toc }} -->
+  <!-- {{ if .TableOfContents  }} -->
+  <!-- <aside> -->
+  <!-- <div class="tableofcontents"> -->
+  <!--   <ol> -->
+  <!--     <details> -->
+  <!--       <summary> -->
+  <!--           <b>Table Of Contents</b> -->
+  <!--       </summary> -->
+  <!--         {{ .TableOfContents }} -->
+  <!--     </details> -->
+  <!--   </ol> -->
+  <!-- </div> -->
+  <!-- </aside> -->
+  <!-- {{ end }} -->
+  <!-- {{ end }} -->
+
   <div class="mainmain">
       <!--
         <div class="topbar">
@@ -96,40 +114,44 @@
           </div>
           {{ end }}
 
-          {{ if .Content }}
-          {{ if .Date }}
-          <div class="thedate">
-            {{ .Date.Format "January 2, 2006" }}
-          </div>
-          {{end}}
-          {{end}}
-          {{ with .Params.authors }}
+          {{ with .Params.author }}
           <div class="theauthors">
             {{ delimit . ", " " and " }}
           </div>
           {{ end }}
+
+          {{ if .Content }}
+            {{ if .Date }}
+            <div class="thedate">
+              {{ .Date.Format "January 2, 2006" }}
+            </div>
+            {{end}}
+          {{end}}
         </div>
 
         {{ if .Params.toc }}
-        <div class="tableofcontents">
+        {{ if .TableOfContents  }}
           <ol>
             <details>
               <summary>
-                <h4> Table Of Contents </h4>
+                  <b>Table Of Contents</b>
               </summary>
-              <div class="sitemap">
+              <div class="tableofcontents">
+              <hr>
                 {{ .TableOfContents }}
+              <hr>
               </div>
             </details>
           </ol>
-        </div>
+        {{ end }}
         {{ end }}
 
-        {{ if .Params.summary }}
+        {{ if .Params.abstract }}
         <div class="summary">
+        <h3>Abstract</h3>
         <div class="mainpad">
           <p>
-          {{ .Params.summary }}
+          {{ .Params.abstract }}
           </p>
         </div>
         </div>
@@ -149,7 +171,8 @@
         {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
       </article>
 
-      <hr>
+      <!-- <hr> -->
+      <br>
     {{ if .IsHome }}
       {{ block "footer" . }}
       <footer>
@@ -162,7 +185,9 @@
                 <a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
               </td>
               <td>
-                Github
+                {{- if .Param "email" }}
+                  <a href='mailto://{{ .Param "email" }}'> E-Mail </a>
+                {{ end }}
               </td>
             </tr>
             <tr>
@@ -172,7 +197,14 @@
                 {{ end }}
               </td>
               <td>
-                Email maybe?!
+                {{- if .Param "github" }}
+                  <a href='https://github.com/{{ .Param "github" }}'> Github </a>
+                {{ end }}
+              </td>
+              <td>
+                {{- if .Param "gitlab" }}
+                  <a href='https://gitlab.com/{{ .Param "gitlab" }}'> Gitlab </a>
+                {{ end }}
               </td>
             </tr>
           </table>

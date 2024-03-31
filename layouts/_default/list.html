@@ -3,74 +3,117 @@
 {{- end }}
 {{ define "main" -}}
 {{ .Content }}
+<br>
+<br>
 {{ if .IsHome }}
 {{- if .Data.Pages -}}
-<div class="tableofcontents">
+<!-- <div class="tableofcontents"> -->
   <!-- <h4>Posts</h4> -->
   <div class="sitemap">
-  <!-- <hr> -->
-  <!-- start first-page -->
-      {{- range .Data.Pages -}}
-      <!-- <h5> -->
-      <!-- </h5> -->
-  <table>
-  <!-- <table style="width:100%"> -->
-    <tr>
-      <th> <a href="{{ .RelPermalink }}">{{ .Title }}</a> </th>
-      <th style="width: 70%;"> </th>
-    </tr>
-  </table>
-  <table>
-        {{- range .Pages }}
-    <tr>
-      <th style="width: 15%;"> </th>
 
-        <td style="padding-left: 0%; padding-top: 2%; padding-bottom: 2%;">
-          {{- if .Param "datesinlist" }}
-          <code>
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-              {{ .Date.Format "2006 Jan 02" }}
-            </time>
-          </code>
-          {{ end -}}
-        </td>
-        <td style="padding-left: 10%; padding-top: 0%; padding-bottom: 0%;">
+  <!-- <hr> -->
+
+<details>
+  <summary>
+      <b style="font-size: 150%;">
+        Map
+      </b>
+  </summary>
+    <hr>
+    {{- range .Data.Pages -}}
+      <p>
+        <b>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </td>
-    </tr>
-        {{- end }}
-  </table>
-      {{- end -}}
+        </b>
+      </p>
+      <ul>
+      {{- range .Pages }}
+        <li>
+          {{- if .Param "datesinlist" }}
+              <code>
+                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                  {{ .Date.Format "2006 Jan 02" }}
+                </time>
+              </code>
+              &nbsp;
+              &mdash;
+              &nbsp;
+          {{ end -}}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ if .Param "abstract" }}
+            <details>
+              <summary>
+                  Summary
+              </summary>
+                <ul>
+                  <li>
+                    {{ .Param "abstract" }}
+                  </li>
+                </ul>
+            </details>
+          {{ end }}
+        </li>
+      {{- end }}
+      <br>
+    </ul>
+    {{- end -}}
+    <hr>
+</details>
+
   <!-- end first-page -->
+
           <!-- <hr> -->
         </div>
-      </div>
+      <!-- </div> -->
       {{- end -}} {{ else }}
-      <div class="tableofcontents">
+      <!-- <div class="tableofcontents"> -->
         <div class="sitemap">
           <!-- <hr> -->
 
-      <table>
-        {{- range.Pages }}
-        <tr>
-          {{- if .Param "datesinlist" }}
-          <td style="padding-left: 0%; padding-top: 2%; padding-bottom: 2%; width: 30%;">
-          <code>
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-              {{ .Date.Format "2006 Jan 02" }}
-            </time>
-          </code>
-          </td>
-          {{ end -}}
-          <td style="padding-left: 10%; padding-top: 2%; padding-bottom: 2%; width: 80%">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </td>
-        </tr>
-        {{- end }}
-      </table>
+  <details>
+    <summary>
+        <b style="font-size: 150%;">
+          Map
+        </b>
+    </summary>
+
+    <ul>
+
+    {{- range .Pages }}
+      
+      <li>
+        {{- if .Param "datesinlist" }}
+            <code>
+              <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "2006 Jan 02" }}
+              </time>
+            </code>
+            &nbsp;
+            &mdash;
+            &nbsp;
+        {{ end -}}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if .Param "abstract" }}
+        <details>
+          <summary>
+              Summary
+          </summary>
+            <ul>
+              <li>
+                {{ .Param "abstract" }}
+              </li>
+            </ul>
+        </details>
+        {{ end }}
+      </li>
+    <br>
+  {{- end -}}
+
+    </ul>
+  </details>
 
           <!-- <hr> -->
         </div>
-      </div>
+      <!-- </div> -->
       {{ end }}
 {{- end }}

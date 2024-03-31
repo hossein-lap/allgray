@@ -1,12 +1,10 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: '{{ replace .Name "-" " " | title }}'
 date: {{ .Date }}
 draft: false
 # subtitle: ''
-# tags:
-# - null
-# authors:
-# - ''
+# tags: ["template"]
+# author: ["Hos"]
 # summary: |
 #     This is a template for now.
 ---
