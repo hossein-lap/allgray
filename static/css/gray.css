@@ -1,10 +1,10 @@
-* {
-	box-sizing: border-box;
-}
+/* * { */
+/* 	box-sizing: border-box; */
+/* } */
 
 .header {
 	padding: 0px;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	text-align: center;
@@ -40,16 +40,16 @@ code {
 }
 
 h1 {
-	font-size: 200%;
+	font-size: 120%;
 }
 h2 {
-	font-size: 150%;
+	font-size: 110%;
 }
 h3 {
-	font-size: 125%;
+	font-size: 105%;
 }
 h4 {
-	font-size: 110%;
+	font-size: 100%;
 }
 h5 {
 	font-size: 100%;
@@ -84,7 +84,7 @@ blockquote, q, abbr, address, cite, bdo {
 }
 
 p, ul, li, table {
-	white-space: wrap;
+	/* white-space: wrap; */
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	background: #2E3436;
 	color: #cfcfcf;
@@ -94,29 +94,35 @@ code {
 	font-family: monospace;
 	font-size: 20px;
 	white-space: wrap;
+    overflow: auto;
 }
 
-li {
-	font-size: 20px;
-}
+/* li { */
+/* 	font-size: 20px; */
+/* } */
+/**/
+/* li span { */
+/* 	font-size: 25px; */
+/* } */
+/**/
+/* ul li:before { */
+/* 	content: '\0000a0'; */
+/* 	list-style-type: square; */
+/* } */
+/**/
+/* ol li { */
+/* 	padding: 5px; */
+/* 	margin-left: 35px; */
+/* } */
+/**/
+/* ul li { */
+/* 	padding: 5px; */
+/* 	margin-left: 20px; */
+/* } */
 
-li span {
-	font-size: 25px;
-}
-
-ul li:before {
-	content: '\0000a0';
-	list-style-type: square;
-}
-
-ol li {
-	padding: 5px;
-	margin-left: 35px;
-}
-
-ul li {
-	padding: 5px;
-	margin-left: 20px;
+.mainmain {
+	max-width: 800px;
+	width: 100%;
 }
 
 main {
@@ -148,6 +154,8 @@ a:hover {
 
 /* For NEXTPREV.HTML */
 #nextprev:hover {
+	/* color: #000; */
+	/* background: #fff; */
 	/* The container for both the previous and next articles. */
 }
 #prevart {
@@ -168,7 +176,7 @@ a:hover {
 /* div(s) */
 .thetitle {
 	font-family: serif, Times, Georgia, Garamond;
-	font-size: 45px;
+	font-size: 15px;
 	border: 5px solid #151617;
 	border-radius: 15px;
 	background-color: #151617;
@@ -302,6 +310,10 @@ a:hover {
 }
 
 @media screen and (max-width: 800px) {
+    .sitemap {
+		width: 100%;
+		padding: 10;
+    }
 	.right, .left {
 		width: 100%;
 		padding: 0;

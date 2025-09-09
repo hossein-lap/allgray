@@ -1,6 +1,12 @@
 <nav>
    {{- $sec := .Page.Section }}
-   {{ $file := .File.TranslationBaseName -}}
+
+   {{- $sec := .Page.Section -}}
+   {{ $file := "" }}
+   {{ with .File }}
+   {{ $file = .TranslationBaseName }}
+   {{ end }}
+
    {{ range.Site.Menus.main.ByWeight }}
    {{ $base := path.Base .URL }}
    <div class='topbaritem'>

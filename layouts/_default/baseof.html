@@ -19,12 +19,6 @@
   <body>
 
     <main>
-      <div class="topbar">
-        {{ if .Site.Menus.main }}
-        {{ partial "nav.html" . }}
-        {{ end -}}
-      </div>
-
     <!-- Site map -->
       <!--
       <aside>
@@ -83,6 +77,13 @@
   <!-- {{ end }} -->
 
   <div class="mainmain">
+
+      <div class="topbar">
+        {{ if .Site.Menus.main }}
+        {{ partial "nav.html" . }}
+        {{ end -}}
+      </div>
+
       <!--
         <div class="topbar">
         {{ if .Site.Menus.main }}
