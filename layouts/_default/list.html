@@ -3,80 +3,90 @@
 {{- end }}
 {{ define "main" -}}
 {{ .Content }}
-<br>
-<br>
 {{ if .IsHome }}
 {{- if .Data.Pages -}}
-  <div class="sitemap">
+<div class="sitemap">
     {{- range .Data.Pages -}}
-      <p>
-        <b>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </b>
-      </p>
-      <ul>
-      {{- range .Pages }}
-        <li>
-          {{- if .Param "datesinlist" }}
-              <code>
-                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                  {{ .Date.Format "2006 Jan 02" }}
-                </time>
-              </code>
-              &nbsp;
-              &mdash;
-              &nbsp;
-          {{ end -}}
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{ if .Param "abstract" }}
-            <details>
-              <summary>
-                  Summary
-              </summary>
-                <ul>
-                  <li>
-                    {{ .Param "abstract" }}
-                  </li>
-                </ul>
-            </details>
-          {{ end }}
-        </li>
-      {{- end }}
-      <br>
-    </ul>
-    {{- end -}}
-        </div>
-      {{- end -}} {{ else }}
-        <div class="sitemap">
-
-    {{- range .Pages }}
-      <li>
-        {{- if .Param "datesinlist" }}
-            <code>
-              <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                {{ .Date.Format "2006 Jan 02" }}
-              </time>
-            </code>
-            &nbsp;
-            &mdash;
-            &nbsp;
-        {{ end -}}
+    <h2>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ if .Param "abstract" }}
-        <details>
-          <summary>
-              Summary
-          </summary>
-            <ul>
-              <li>
-                {{ .Param "abstract" }}
-              </li>
-            </ul>
-        </details>
-        {{ end }}
-      </li>
-    <br>
-  {{- end -}}
-        </div>
-      {{ end }}
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th></th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{- range .Pages }}
+            <tr>
+                <td>
+                    <b>
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </b>
+                </td>
+                <td>
+                    {{- if .Param "datesinlist" }}
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                        {{ .Date.Format "2006 Jan 02" }}
+                    </time>
+                    {{ end -}}
+                </td>
+                <td>
+                    {{ if .Param "description" }}
+                    {{ .Param "description" }}
+                    {{ end }}
+                </td>
+                <td>
+                    <a href="{{ .RelPermalink }}">Continue</a>
+                </td>
+            </tr>
+            {{- end }}
+        </tbody>
+    </table>
+    {{- end -}}
+</div>
+{{- end -}} {{ else }}
+<h2> Posts </h2>
+<div class="sitemap">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th></th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{- range .Pages }}
+            <tr>
+                <td>
+                    <b>
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </b>
+                </td>
+                <td>
+                    {{- if .Param "datesinlist" }}
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                        {{ .Date.Format "2006 Jan 02" }}
+                    </time>
+                    {{ end -}}
+                </td>
+                <td>
+                    {{ if .Param "description" }}
+                    {{ .Param "description" }}
+                    {{ end }}
+                </td>
+                <td>
+                    <a href="{{ .RelPermalink }}">Continue</a>
+                </td>
+            </tr>
+            {{- end }}
+        </tbody>
+    </table>
+</div>
+{{ end }}
 {{- end }}

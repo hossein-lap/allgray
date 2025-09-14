@@ -9,7 +9,7 @@
 
    {{ range.Site.Menus.main.ByWeight }}
    {{ $base := path.Base .URL }}
-   <div class='topbaritem'>
+   <div class='topbariten'>
          <a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}">
             <span class=pre>{{ .Pre }}</span>
             <span class=menuname>{{ .Name }}</span>

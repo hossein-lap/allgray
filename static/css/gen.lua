@@ -7,7 +7,7 @@ local themes = {
 		bg = '#26292A',
 		cb = '#181A1B',
 		br = '#151617',
-		-- br = '#282a36',
+		cr = '#282a36',
 		fg = '#bbbbbb',
 		hh = '#ffffff',
 		cf = '#cccccc',
@@ -81,7 +81,7 @@ local elements = {
 			'.theheadings',
 		},
 		bg = {
-			-- '.highlight',
+			'.highlight',
 			'.topbaritem',
 			'.topbar',
 			'body',
@@ -142,10 +142,17 @@ write_color(file, elements.spec.lnhover, color.ln, 'background-color:')
 file:write(string.format('.thetitle { color: %s; }\n', color.hh))
 file:write(string.format('.thetitle { background-color: %s; }\n', color.cb))
 file:write(string.format('blockquote { border-left: 3px solid %s; }\n', color.cf))
+file:write(string.format('.literalblock > .content { background-color: %s; }\n', color.cb))
+file:write(string.format('.literalblock > .content { border: 0.5em solid %s; }\n', color.cb))
+file:write(string.format('header { border: 1em solid %s; }\n', color.cb))
 for _, value in pairs(elements.auto) do
 	file:write(string.format('%s { color: %s; }\n', value, color[value]))
 end
 write_color(file, elements.spec.code, "#282A36", 'background-color:')
+file:write(string.format('p { code { border-radius: 5%;
+ } }\n', color.br))
+file:write(string.format('p { code { border: 1.0em solid %s; } }\n', color.br))
+file:write(string.format('p { code { background-color: %s; } }\n', color.bg))
 file:close()
 
 os.execute(string.format("hugo gen chromastyles --style=%s > syntax.css", "dracula"))

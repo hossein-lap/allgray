@@ -86,8 +86,6 @@ blockquote, q, abbr, address, cite, bdo {
 p, ul, li, table {
 	/* white-space: wrap; */
 	font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica;
-	background: #2E3436;
-	color: #cfcfcf;
 }
 
 code {
@@ -96,29 +94,6 @@ code {
 	white-space: wrap;
     overflow: auto;
 }
-
-/* li { */
-/* 	font-size: 20px; */
-/* } */
-/**/
-/* li span { */
-/* 	font-size: 25px; */
-/* } */
-/**/
-/* ul li:before { */
-/* 	content: '\0000a0'; */
-/* 	list-style-type: square; */
-/* } */
-/**/
-/* ol li { */
-/* 	padding: 5px; */
-/* 	margin-left: 35px; */
-/* } */
-/**/
-/* ul li { */
-/* 	padding: 5px; */
-/* 	margin-left: 20px; */
-/* } */
 
 .mainmain {
 	max-width: 800px;

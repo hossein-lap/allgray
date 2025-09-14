@@ -1,36 +1,16 @@
-/* ************************************************************************** */
 
-@font-face {
-	font-family: "ubuntu";
-	src: url("/fonts/Ubuntu-R.ttf") format("truetype"),
-		url("/fonts/Ubuntu-B.ttf") format("truetype"),
-		url("/fonts/Ubuntu-I.ttf") format("truetype"),
-		url("/fonts/Ubuntu-BI.ttf") format("truetype");
+body {
+    margin: 200px; 
 }
-
-@font-face {
-	font-family: "freeserif";
-	src: url("/fonts/FreeSerif.ttf") format("truetype"),
-		url("/fonts/FreeSerifBold.ttf") format("truetype"),
-		url("/fonts/FreeSerifItalic.ttf") format("truetype"),
-		url("/fonts/FreeSerifBoldItalic.ttf") format("truetype");
-}
-
-/* @font-face { */
-/* 	font-family: 'Ubuntu'; */
-/* 	font-style: normal; */
-/* 	font-weight: 400; */
-/* 	src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic&subset=Latin) format('woff'); */
-/* } */
 
 * {
-	font-size: 18px;
+	font-size: 1em;
 	box-sizing: border-box;
 }
 
 .rssfeed {
 	padding-top: 0%;
-	font-size: 100%;
+	font-size: 1em;
 	padding-left: 0%;
 	padding-right: 0%;
 }
@@ -47,9 +27,9 @@
 
 header {
 	font-weight: bold;
-	/* font-family: sans-serif, Arial, Tahoma, Geneva, Verdana, Helvetica; */
-	font-family: serif, Times, freeserif, Georgia, Garamond;
-	text-align: center;
+	/* font-family: "Liberation Sans", Arial, Tahoma, Geneva, Verdana, Helvetica; */
+	font-family: "Libertinus Sans", Times, "FreeSerif", Georgia, Garamond;
+	/* text-align: center; */
 	padding: 0%;
 }
 
@@ -60,33 +40,33 @@ p {
 
 
 h1 {
-	font-size: 200%;
+	font-size: 2em;
 	padding-top: 3%;
 	padding-bottom: 2%;
 }
 h2 {
-	font-size: 150%;
+	font-size: 1.8em;
 	padding-top: 3%;
 	padding-bottom: 2%;
 }
 h3 {
-	font-size: 125%;
+	font-size: 1.6em;
 	padding-top: 3%;
 	padding-bottom: 2%;
 }
 h4 {
-	font-size: 110%;
+	font-size: 1.4em;
 }
 h5 {
-	font-size: 100%;
+	font-size: 1.2em;
 }
 h6 {
-	font-size: 110%;
+	font-size: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-	font-family: serif, Times, freeserif, Georgia, Garamond;
+	font-family: "Libertinus Sans", Times, "FreeSerif", Georgia, Garamond;
 	margin-bottom: 0%;
 	border-radius: 0px;
 	padding-left: 0%;
@@ -99,41 +79,25 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
 	padding: 0px;
-	/* font-family: Times, serif, freeserif, Georgia, Garamond; */
+	/* font-family: Times, "Libertinus Sans", "FreeSerif", Georgia, Garamond; */
 	margin: 0;
 }
 
 abbr, address, cite, bdo {
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 }
 
 p, ul, li, table {
-	white-space: wrap;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 }
 
 li {
 	font-size: 100%;
 }
 
-li span {
-	font-size: 100%;
-}
-
-ul li:before {
-	content: '\0000a0';
-	.sitemap list-style-type: square;
-}
-
-ol li {
-	padding: 5px;
-	margin-left: 35px;
-}
-
-ul li {
-	padding: 5px;
-	margin-left: 20px;
-}
+/* li span { */
+/* 	font-size: 100%; */
+/* } */
 
 main {
 	-ms-flex-wrap: wrap; /* IE10 */
@@ -158,8 +122,8 @@ img {
 }
 
 a {
-	text-decoration: none;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	/* text-decoration: none; */
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 }
 
 /* q:before { */
@@ -170,14 +134,36 @@ a {
 /*     content: close-quote; */
 /* } */
 
-blockquote p {
-    color: lightgray;
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
+.title {
+    padding-top: 1.5em;
+	font-style: italic;
+	font-width: bold;
+    font-family: "Libertinus Sans", "FreeSerif", Times, Georgia, Garamond;
+}
+
+.literalblock, .listingblock {
+    .content {
+        overflow-x: auto;
+    }
+}
+
+
+.quoteblock {
+    p {
+        padding-left: 1em;
+        color: none;
+        display: block;
+        font-family: "Libertinus Sans", "FreeSerif", Times, Georgia, Garamond;
+    }
+}
+
+blockquote {
+    overflow-x: auto;
+    /* margin: 1em; */
+    /* margin-top: 1em; */
+    /* margin-bottom: 1em; */
     margin-left: 40px;
-    margin-right: 40px;
-    font-family: serif, freeserif, Times, Georgia, Garamond;
+    /* margin-right: 40px; */
 	/* font-style: italic; */
 }
 
@@ -207,39 +193,39 @@ blockquote p {
 
 /* div(s) */
 .thetitle {
-	/* font-family: serif, Times, Georgia, Garamond; */
-	font-size: 250%;
+	font-family: "Libertinus Sans", Times, Georgia, Garamond;
+	font-size: 2.2em;
 	/* border-radius: 0px; */
 	border-radius: 5%;
-	text-align: center;
-	float: center;
+	/* text-align: center; */
+	/* float: center; */
 	padding: 1%;
 }
 
 .thesubtitle {
-	/* font-family: serif, Times, Georgia, Garamond; */
-	font-size: 150%;
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
+	font-size: 1.5em;
 	padding: 1%;
 }
 
 .theauthors {
-	/* font-family: serif, Times, Georgia, Garamond; */
-	text-align: center;
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
+	/* text-align: center; */
 	padding: 1%;
 	font-style: normal;
 	font-weight: normal;
 }
 
 .thedate {
-	/* font-family: serif, Times, Georgia, Garamond; */
+	/* font-family: "Libertinus Sans", Times, Georgia, Garamond; */
 	padding: 1%;
 	font-style: normal;
 	font-weight: normal;
 }
 
 .summary {
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
-	font-size: 100%;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-size: 1em;
 	white-space: wrap;
 	text-align: left;
 	font-style: normal;
@@ -247,15 +233,15 @@ blockquote p {
 	padding: 1%;
 }
 
-.header {
-	padding-bottom: 1%;
-}
+/* .header { */
+/* 	padding-bottom: 1%; */
+/* } */
 
 .subheader {
 	padding: 1px;
-	font-size: 100%;
+	font-size: 1em;
 	font-weight: bold;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	text-align: center;
 }
 
@@ -270,7 +256,7 @@ blockquote p {
 	text-align: left;
 	padding: 2%;
 	text-indent: 0%;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	border: 0px solid black;
 	border-radius: 0px;
 	margin-top: 2%;
@@ -281,7 +267,7 @@ blockquote p {
 	font-weight: normal;
 	text-align: left;
 	text-indent: 0%;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	/* padding: 2%; */
 	/* border: 1% solid #202020; */
 	/* border-radius: 5px; */
@@ -297,61 +283,82 @@ aside {
 	font-weight: normal;
 	text-align: left;
 	padding: 1%;
-	/* border-radius: 5px; */
-	/* border: 6px solid #777; */
+    overflow-x: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #191A21;
+        text-align: left;
+    }
+    th {
+        background-color: #191A21;
+    }
+    tr:hover {
+        background-color: #191A21;
+    }
+
 } 
 
-.sitemap td {
-	text-align: left;
-    /* padding-left: 1%; */
-    /* padding-top: 0%; */
-    /* padding-bottom: 0%; */
-/* 	padding-top: 1%; */
-/* 	padding-bottom: 0.7%; */
-	width: 30%;
-}
-
-.sitemap th {
-    width: 10%;
+.sitemap li {
+    p, a: {
+        font-family: "Libertinus Sans", Sans;
+    }
 }
 
 .topbar {
 	padding: 0px;
-	font-size: 100%;
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-size: 1em;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 	text-align: left;
 	-ms-flex: 100%; /* IE10 */
 	flex: 100%;
 }
 
-.topbaritem {
+.topbariten {
+    padding: 1.0em;
+    a {
+        padding: 0.4em;
+    }
 	font-weight: normal;
 	text-align: left;
-	padding: 1%;
 	display: inline-block;
 	clear: both;
-	margin-bottom: 0mm;
+	margin-bottom: 1em;
 	margin-right: 0mm;
-	font-size: 150%;
+	font-size: 1.0em;
+	border-radius: 0px;
+	border-radius: 5%;
+    background-color: #191A21;
+}
+
+.topbaritem {
+    padding: 0.4em;
+    a {
+        padding: 0.4em;
+    }
+	font-weight: normal;
+	text-align: left;
+	display: inline-block;
+	clear: both;
+	margin-bottom: 1em;
+	margin-right: 0mm;
+	font-size: 1.0em;
 	border-radius: 0px;
 	border-radius: 5%;
 }
 
 .topbaritem:hover {
-	font-weight: normal;
-	text-align: left;
-	padding: 1%;
-	display: inline-block;
-	clear: both;
-	margin-bottom: 0mm;
-	margin-right: 0mm;
-	font-size: 150%;
-	border-radius: 0px;
-	border-radius: 5%;
+    padding: 0.4em;
+    a {
+        padding: 0.4em;
+    }
 }
 
 .botbar {
-	font-size: 100%;
+	font-size: 1em;
 	text-align: center;
 	max-width: 100%;
 	/* border-radius: 5px; */
@@ -379,9 +386,16 @@ aside {
 	/* background-color: #191A21; */
 }
 
+p {
+    code {
+        border-radius: 0.5em;
+        margin: 0.1em;
+    }
+}
+
 code {
 	font-family: monospace;
-	font-size: 100%;
+	font-size: 1em;
 	/* white-space: wrap; */
 	/* padding: 5px; */
 	/* border-radius: 2%; */
@@ -393,8 +407,9 @@ code {
 }
 
 /* Column container */
-main {  
-}
+
+/* main {   */
+/* } */
 
 /* Sidebar/left column */
 .mainside {
@@ -414,9 +429,22 @@ main {
 	width: 100%;
 }
 
-.mainpad {
+body {
 	padding: 20px;
 }
+
+.hdlist {
+    table {
+        tr {
+            .hdlist1 {
+                font-width: bold;
+            }
+        }
+    }
+}
+
+/* .mainpad { */
+/* } */
 
 @media screen and (max-width: 700px) {
 	.mainrow {   
@@ -449,11 +477,11 @@ br {
 }
 
 .serif {
-	font-family: serif, ubuntu, Times, Georgia, Garamond;
+	font-family: "Libertinus Sans", ubuntu, Times, Georgia, Garamond;
 	/* display: inline-block; */
 }
 .sans {
-	font-family: sans-serif, ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
+	font-family: "Liberation Sans", ubuntu, Arial, Tahoma, Geneva, Verdana, Helvetica;
 }
 
 .left {
