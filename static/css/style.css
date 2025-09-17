@@ -264,6 +264,9 @@ blockquote {
 } 
 
 .tableofcontents {
+    width: 100%; /* Set the width as needed */
+    max-height: 1200px; /* Set the height as needed */
+    overflow: auto; /* This will add both vertical and horizontal scrollbars */
 	font-weight: normal;
 	text-align: left;
 	text-indent: 0%;
@@ -443,8 +446,10 @@ body {
     }
 }
 
-/* .mainpad { */
-/* } */
+.mainpad {
+    padding-left: 3em;
+    padding-right: 3em;
+}
 
 @media screen and (max-width: 700px) {
 	.mainrow {   
@@ -520,6 +525,32 @@ br {
 	.right {
 		text-align: center;
 	}
+}
+
+/* two column config */
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+.mainpad {
+    flex: 3; /* Takes up 3 parts of the available space */
+    padding: 20px;
+    /* background-color: #f9f9f9; /* Light background for main content */ */
+    /* border-right: 1px solid #ccc; /* Optional: border between columns */ */
+}
+.mainside {
+    flex: 1; /* Takes up 1 part of the available space */
+    padding: 20px;
+    a {
+        text-decoration: none;
+    }
+    /* background-color: #ffffff; /* White background for sidebar */ */
+}
+.scrollable {
+    width: 100%; /* Set the width as needed */
+    max-height: 1200px; /* Set the height as needed */
+    overflow: auto; /* This will add both vertical and horizontal scrollbars */
 }
 
 /* * { */

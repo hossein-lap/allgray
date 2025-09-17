@@ -20,58 +20,6 @@
     </head>
     <body>
         <main>
-            <!-- Site map -->
-            <!-- <aside> -->
-            <!--   <ul> -->
-            <!--     {{ $currentPage := . }} -->
-            <!--     {{ range .Site.Menus.main }} -->
-            <!--     {{ if .HasChildren }} -->
-            <!--     <div class='topbar'> -->
-            <!--       <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}"> -->
-            <!--         <a href="#"> -->
-            <!--           {{ .Pre }} -->
-            <!--           <span>{{ .Name }}</span> -->
-            <!--         </a> -->
-            <!--       </li> -->
-            <!--     </div> -->
-            <!--     <div class='topbar'> -->
-            <!--       <ul class="sub-menu"> -->
-            <!--         {{ range .Children }} -->
-            <!--         <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"> -->
-            <!--           <a href="{{ .URL }}">{{ .Name }}</a> -->
-            <!--         </li> -->
-            <!--         {{ end }} -->
-            <!--       </ul> -->
-            <!--     </div> -->
-            <!--     {{ else }} -->
-            <!--     <div class='topbar'> -->
-            <!--       <li> -->
-            <!--         <a href="{{ .URL }}"> -->
-            <!--           {{ .Pre }} -->
-            <!--           <span>{{ .Name }}</span> -->
-            <!--         </a> -->
-            <!--       </li> -->
-            <!--     </div> -->
-            <!--     {{ end }} -->
-            <!--     {{ end }} -->
-            <!--   </ul> -->
-            <!-- </aside> -->
-            <!-- {{ if .Params.toc }} -->
-            <!-- {{ if .TableOfContents  }} -->
-            <!-- <aside> -->
-            <!-- <div class="tableofcontents"> -->
-            <!--   <ol> -->
-            <!--     <details> -->
-            <!--       <summary> -->
-            <!--           <b>Table Of Contents</b> -->
-            <!--       </summary> -->
-            <!--         {{ .TableOfContents }} -->
-            <!--     </details> -->
-            <!--   </ol> -->
-            <!-- </div> -->
-            <!-- </aside> -->
-            <!-- {{ end }} -->
-            <!-- {{ end }} -->
             <div class="mainmain">
                 <div class="topbar">
                     {{ if .Site.Menus.main }}
@@ -122,33 +70,39 @@
                 <!-- main body -->
                 <article>
                     <div class="row">
-                        {{ if .Params.toc }}
-                        {{ if .TableOfContents  }}
-                        <h4>Table Of Content</h4>
-                        <div class="tableofcontents">
-                            {{ .TableOfContents }}
-                        </div>
-                        {{ end }}
-                        {{ end }}
+                        {{ block "main" . }}
+                        {{ if .IsHome }}
                         <div class="mainpad">
-                            {{ if .Params.description }}
-                            <div class="summary">
-                                <h3>Abstract</h3>
-                                <div class="mainpad">
-                                    <p>
-                                    {{ .Params.description }}
-                                    </p>
-                                </div>
-                            </div>
-                            {{ end }}
-                            {{ block "main" . }} {{ .Content }} {{ end }}
+                            {{ .Content }}
                         </div>
+                        {{ else }}
+                        <div class="container">
+                            <div class="mainpad">
+                            <div class="scrollable">
+                                {{ .Content }}
+                            </div>
+                            </div>
+                            <div class="mainside">
+                                {{ if .Params.toc }}
+                                {{ if .TableOfContents }}
+                                <h5>Table Of Content</h5>
+                                <div class="tableofcontents">
+                                    {{ .TableOfContents }}
+                                </div>
+                                {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+
                         {{ if .Param "nextprev" }} {{ partial "nextprev.html" . -}} {{ end -}}
                         {{ if .Param "taglist" }} {{ partial "taglist.html" . }} {{ end -}}
+
                     </div>
                 </article>
-                <!-- <hr> -->
                 <br>
+                <hr>
                 {{ if .IsHome }}
                 {{ block "footer" . }}
                 <footer>
@@ -228,7 +182,6 @@
                     </div>
                 </footer>
                 {{ end }}
-            </div>
         </main>
     </body>
 </html>
