@@ -27,6 +27,8 @@ a:hover { background-color: #ffffff; }
 blockquote { border-left: 3px solid #cccccc; }
 .literalblock > .content { background-color: #181A1B; }
 .literalblock > .content { border: 0.5em solid #181A1B; }
+.tableofcontents { border: 2px solid #181A1B; }
+.scrollable { border: 2px solid #181A1B; }
 header { border: 1em solid #181A1B; }
 h1 { color: #ffffff; }
 h2 { color: #ffffff; }
@@ -34,5 +36,3 @@ h3 { color: #ffffff; }
 h4 { color: #ffffff; }
 h5 { color: #ffffff; }
 .highlight { background-color: #282A36; }
-p { code { border: 0.3em solid #151617; } }
-p { code { background-color: #151617; } }
