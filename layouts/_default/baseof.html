@@ -83,6 +83,9 @@
                             </div>
                             </div>
                             <div class="mainside">
+                                {{ if .Params.pdf }}
+                                <a href="{{ .Site.BaseURL }}{{ .Params.pdf }}">Get the PDF</a>
+                                {{ end }}
                                 {{ if .Params.toc }}
                                 {{ if .TableOfContents }}
                                 <h5>Table Of Content</h5>
