@@ -2,10 +2,10 @@
 
 -- palette {{{
 local themes = {
--- crunchbang {{{
+    -- crunchbang {{{
 	crunchbang = {
-		bg = '#26292A',
-		cb = '#181A1B',
+		bg = '#1B1B1B',  -- '#26292A'
+		cb = '#26292A',  -- '#181A1B'
 		br = '#151617',
 		cr = '#282a36',
 		fg = '#bbbbbb',
@@ -18,8 +18,8 @@ local themes = {
 		h5 = '#ffffff',
 		ln = '#ffffff',
 	},
--- }}}
--- dracula {{{
+    -- }}}
+    -- dracula {{{
 	dracula = {
 		bg = '#191A21',
 		fg = '#f8f8f2',
@@ -34,8 +34,8 @@ local themes = {
 		h5 = '#bd93f9',
 		ln = '#8be9fd',
 	},
--- }}}
--- ayu {{{
+    -- }}}
+    -- ayu {{{
 	ayu = {
 		bg = '#101521',
 		fg = '#CBCCC6',
@@ -48,8 +48,8 @@ local themes = {
 		h4 = '#CB9FF8',
 		ln = '#90e1c6',
 	},
--- }}}
--- onedark {{{
+    -- }}}
+    -- onedark {{{
 	onedark = {
 		bg = '#21252b',
 		fg = '#dddddd',
@@ -62,11 +62,15 @@ local themes = {
 		h4 = '#cc9057',
 		ln = '#56b6c2',
 	}
--- }}}
+    -- }}}
 }
 -- }}}
 
 local color = themes.crunchbang -- all but `dracula` are missing `br` color
+color.unified = {
+    br = "#770000",
+    a  = "#005577",
+}
 
 local elements = {
 	spec = {
@@ -141,18 +145,20 @@ write_color(file, elements.spec.lnhover, '#000', 'color:')
 write_color(file, elements.spec.lnhover, color.ln, 'background-color:')
 file:write(string.format('.thetitle { color: %s; }\n', color.hh))
 file:write(string.format('.thetitle { background-color: %s; }\n', color.cb))
-file:write(string.format('blockquote { border-left: 3px solid %s; }\n', color.cf))
+file:write(string.format('blockquote { border-left: 3px solid %s; }\n', color.unified.br))
 file:write(string.format('.literalblock > .content { background-color: %s; }\n', color.cb))
-file:write(string.format('.literalblock > .content { border: 0.5em solid %s; }\n', color.cb))
-file:write(string.format('.tableofcontents { border: 2px solid %s; }\n', color.cb))
-file:write(string.format('.scrollable { border: 2px solid %s; }\n', color.cb))
-file:write(string.format('header { border: 1em solid %s; }\n', color.cb))
+file:write(string.format('.sitemap { th,tr:hover { background-color: %s; } }\n', color.cb))
+file:write(string.format('.topbariten { background-color: %s; }\n', color.cb))
+file:write(string.format('.literalblock > .content { border: 0.5em solid %s; }\n', color.unified.br))
+file:write(string.format('.tableofcontents { border: 2px solid %s; }\n', color.unified.br))
+file:write(string.format('.scrollable { border: 2px solid %s; }\n', color.unified.br))
+file:write(string.format('header { border-top: 0.8em solid %s;  border-bottom: 1em solid %s; }\n', color.cb, color.cb))
 for _, value in pairs(elements.auto) do
 	file:write(string.format('%s { color: %s; }\n', value, color[value]))
 end
 write_color(file, elements.spec.code, "#282A36", 'background-color:')
 -- file:write(string.format('p { code { border-radius: 5%; } }\n', color.br))
-file:write(string.format('p { code { border: 1.0em solid %s; } }\n', color.br))
+file:write(string.format('p { code { border: 1.0em solid %s; } }\n', color.unified.br))
 file:write(string.format('p { code { background-color: %s; } }\n', color.cb))
 file:close()
 

@@ -282,13 +282,6 @@ aside {
         border: 1px solid #191A21;
         text-align: left;
     }
-    th {
-        background-color: #191A21;
-    }
-    tr:hover {
-        background-color: #191A21;
-    }
-
 } 
 
 .sitemap li {
@@ -320,7 +313,6 @@ aside {
 	font-size: 1.0em;
 	border-radius: 0px;
 	border-radius: 5%;
-    background-color: #191A21;
 }
 
 .topbaritem {
@@ -372,7 +364,6 @@ aside {
 	/* border: 1% solid black; */
 	border-radius: 10px;
     overflow-x: auto;
-	/* background-color: #191A21; */
 }
 
 p {
@@ -389,9 +380,6 @@ code {
 	/* white-space: wrap; */
 	/* padding: 5px; */
 	/* border-radius: 2%; */
-	/* background: #353535; */
-	/* background-color: #353535; */
-	/* background-color: #21222c; */
 	/* padding-left: 4px; */
 	/* padding-right: 4px; */
 }
@@ -523,8 +511,6 @@ br {
 .mainpad {
     flex: 3; /* Takes up 3 parts of the available space */
     padding: 00px;
-    /* background-color: #f9f9f9; /* Light background for main content */ */
-    /* border-right: 1px solid #ccc; /* Optional: border between columns */ */
 }
 .mainside {
     flex: 1;
