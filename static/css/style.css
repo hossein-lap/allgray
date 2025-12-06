@@ -35,7 +35,7 @@ header {
 
 p {
 	text-indent: 0%;
-	line-height: 1.7;
+	line-height: 2.7;
 }
 
 
@@ -489,6 +489,9 @@ br {
 }
 
 @media only screen and (min-width: 400px) {
+    .getpdf {
+        float: left;
+    }
 	/* For mobile phones: */
 	.left, .right, .imgright {
 		width: 100%;
@@ -504,6 +507,7 @@ br {
 
 /* two column config */
 .container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin: 20px;
@@ -519,16 +523,23 @@ br {
         text-decoration: none;
     }
 }
+
+    /* a { */
+    /*     text-decoration: none; */
+    /* } */
+
 .scrollable {
     width: 100%;
     padding: 20px;
 	border-radius: 00px;
-    max-height: 1000px;
+    max-height: 700px;
+    /* max-width: 1000px; */
     overflow: auto;
 }
 .tableofcontents {
     width: 100%;
-    max-height: 600px;
+	line-height: 1.7;
+    max-height: 550px;
     overflow: auto;
 	font-weight: normal;
 	text-align: left;
@@ -537,3 +548,15 @@ br {
 	border-radius: 00px;
 } 
 
+.getpdf {
+    float: right;
+    /* border-radius: 0.5em; */
+    a {
+        padding: 0.5em;
+        margin-right: 1em;
+        /* border-radius: 0.5em; */
+        font-weight: bold;
+        text-decoration: none;
+    }
+    text-margin: center;
+}

@@ -24,12 +24,11 @@ a:hover { color: #000; }
 a:hover { background-color: #ffffff; }
 .thetitle { color: #ffffff; }
 .thetitle { background-color: #26292A; }
-blockquote { border-left: 3px solid #770000; }
+blockquote { border-left: 3px solid #bbbbbb; background-color: #151617; }
 .literalblock > .content { background-color: #26292A; }
 .sitemap { th,tr:hover { background-color: #26292A; } }
 .topbariten { background-color: #26292A; }
-.literalblock > .content { border: 0.5em solid #770000; }
-.tableofcontents { border: 2px solid #770000; }
+.literalblock > .content { border: 0.5em solid #26292A; }
 .scrollable { border: 2px solid #770000; }
 header { border-top: 0.8em solid #26292A;  border-bottom: 1em solid #26292A; }
 h1 { color: #ffffff; }
@@ -38,5 +37,5 @@ h3 { color: #ffffff; }
 h4 { color: #ffffff; }
 h5 { color: #ffffff; }
 .highlight { background-color: #282A36; }
-p { code { border: 1.0em solid #770000; } }
+p { code { border: 0.4em solid #26292A; } }
 p { code { background-color: #26292A; } }
